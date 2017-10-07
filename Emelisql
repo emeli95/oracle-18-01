@@ -20,6 +20,9 @@ create or replace procedure guardar_almacen(mi_id IN integer, mi_ubicacion IN va
 begin
 guardar_almacen(1,'PLYMOUTH');
 end;
-/
+
+select * from almacen;
+
+
 
  
