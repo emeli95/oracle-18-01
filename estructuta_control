@@ -21,7 +21,7 @@ end;
 select * from menores_edad;
 select count(*) from menores_edad;
 
---solucion
+--solucion problema2: Generar un procedimiento almacenado que nos haga
 create or replace procedure actualizar_edad(age IN INTEGER, ID IN INTEGER) as 
 begin
 if age <18 then
