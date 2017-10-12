@@ -1,0 +1,33 @@
+create table menores_edad (id_menores integer primary key,
+nombre varchar2 (6),
+edad integer);
+
+create or replace procedure generar_mil
+as begin
+
+--generamos los mil 
+
+for i IN 1..1000 loop
+insert into menores_edad values(i,'emeli',22);
+end loop;
+end;
+/
+
+--ejecutar el procedimiento
+begin 
+generar_mil();
+end;
+/
+select * from menores_edad;
+select count(*) from menores_edad;
+
+--solucion
+create or replace procedure actualizar_edad(age IN INTEGER, ID IN INTEGER) as 
+begin
+if age <18 then
+raise_application_error(-20001, 'NO ACEP´TO EDADES MENORES A 18');
+ELSE
+UPDATE MENORES_EDAD SET EDAD=AGE WHERE ID_MENORES=ID;
+END  IF;
+END;
+/
