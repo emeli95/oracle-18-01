@@ -1,0 +1,44 @@
+      CREATE TABLE USUARIO_X (ID INTEGER PRIMARY KEY,
+     
+      NMBRE VARCHAR2(40),
+      EDAAD INTEGER);
+      
+      INSERT INTO USUARIO_X VALUES(1,'jUAN',40);
+      INSERT INTO USUARIO_X VALUES(2,'ANA',32);
+      INSERT INTO USUARIO_X VALUES(3,'PEDRO',27);
+      INSERT INTO USUARIO_X VALUES(4,'MARIA',30);
+      
+      SELECT * FROM USUARIO_x;
+     
+     
+     DECLARE
+     CURSOR cur_1 IS SELECT * FROM USUARIO_X;
+     BEGIN
+     ---AQUI VIENE LA LOGICA DEL CURSOR
+     FOR FILA  IN cur_1 loop
+     DBMS_OUTPUT.PUT_LINE('EL NOMBRE ACTUAL ES'||FILA.NMBRE);
+     END LOOP;
+     END;
+     /
+     
+     -- Genear un cursor que contenga uina variable interna y que realice la sihuiente operación
+     --si la edad es estrictamente mayor a 30, asignar sueldo base un factor de 1.5 y si es menos, no asignar el factor
+     --Donde sueldo_base=6000 pesos
+     
+     declare
+     cursor cur_2 is select * from usuario_x;
+     SUELDO_BASE INTEGER;
+     BEGIN
+     --INICIALIZAMOS EL DUELDO BASE 
+   
+    FOR FILA IN CUR_2 LOOP
+     SUELDO_BASE:=6000;
+    IF FILA.EDAAD >30 THEN 
+    SUELDO_BASE:=SUELDO_BASE*1.5;
+    END IF;
+    DBMS_OUTPUT.PUT_LINE('EL USUARIO ES '||SUELDO_BASE ||' EDAAD:'||FILA.EDAAD);
+    END LOOP;
+    END;
+    /
+    
+     
